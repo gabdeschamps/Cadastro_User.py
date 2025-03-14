@@ -24,44 +24,43 @@ def sistema():
     usuarios = carregar_usuarios()
 
     while True:
-        print("\n📌 MENU: Escolha uma opção")
+        print("\nMENU: Escolha uma opção")
         print("1 - Criar conta")
         print("2 - Entrar na conta")
         print("3 - Sair")
 
         opcao = input("Digite sua escolha: ")
 
-        # ✅ Criar conta
+        # Criar conta
         if opcao == "1":
             usuario = input("Escolha um nome de usuário: ")
 
             if usuario in usuarios:
-                print("❌ Esse nome de usuário já existe! Tente outro.")
+                print(" Esse nome de usuário já existe! Tente outro.")
             else:
                 senha = input("Crie uma senha: ")
                 usuarios[usuario] = senha  # Atualiza o dicionário
                 salvar_usuario(usuario, senha)  # Salva no arquivo
-                print("✅ Conta criada com sucesso!")
+                print(" Conta criada com sucesso!")
 
-        # ✅ Entrar na conta
+        # Entrar na conta
         elif opcao == "2":
             usuario = input("Digite seu nome de usuário: ")
             senha = input("Digite sua senha: ")
 
             if usuario in usuarios and usuarios[usuario] == senha:
-                print(f"✅ Bem-vindo, {usuario}!")
+                print(f" Bem-vindo, {usuario}!")
                 break  # Sai do loop quando o login for bem-sucedido
             else:
-                print("❌ Usuário ou senha incorretos! Tente novamente.")
+                print(" Usuário ou senha incorretos! Tente novamente.")
 
-        # 🚪 Sair do sistema
+        #  Sair do sistema
         elif opcao == "3":
-            print("👋 Saindo do sistema...")
+            print(" Saindo do sistema...")
             time.sleep(1)
             break  # Encerra o loop e finaliza o programa
 
         else:
-            print("⚠️ Opção inválida! Escolha 1, 2 ou 3.")
+            print("Opção inválida! Escolha 1, 2 ou 3.")
 
-# 🔥 Executa o sistema
 sistema()
